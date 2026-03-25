@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: fittrack-backend
+    env: python
+    region: frankfurt
+    plan: free
+    buildCommand: cd backend && pip install -r requirements-prod.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false          # In Render Dashboard eintragen (Neon PostgreSQL URL)
+      - key: SECRET_KEY
+        generateValue: true  # Render generiert automatisch
+      - key: ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "10080"
+      - key: GROQ_API_KEY
+        sync: false          # In Render Dashboard eintragen
+      - key: FRONTEND_URL
+        sync: false          # Vercel URL eintragen, z.B. https://fittrack.vercel.app

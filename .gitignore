@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+venv/
+.venv/
+*.db
+*.sqlite3
+
+# Node
+node_modules/
+dist/
+.env.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ML models / große Datensätze (zu groß für Git)
+backend/app/ml/models/*.joblib
+ml_training/datasets/
+
+# Ggym (alter Klon-Ordner)
+Ggym/
