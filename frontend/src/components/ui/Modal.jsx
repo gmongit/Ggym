@@ -10,7 +10,7 @@ export default function Modal({ open, onClose, title, children, zIndex = 'z-50' 
   if (!open) return null
 
   return (
-    <div className={`fixed inset-0 ${zIndex} flex items-end justify-center sm:items-center`}>
+    <div className={`fixed inset-0 ${zIndex} flex items-center justify-center`}>
       {/* Backdrop */}
       <div
         className="absolute inset-0"
@@ -20,14 +20,13 @@ export default function Modal({ open, onClose, title, children, zIndex = 'z-50' 
 
       {/* Sheet */}
       <div
-        className="relative w-full sm:max-w-md max-h-[90dvh] overflow-y-auto rounded-t-3xl sm:rounded-3xl
+        className="relative w-full max-w-md mx-4 max-h-[90dvh] overflow-y-auto rounded-3xl
                    animate-[slideUp_0.25s_ease-out]"
         style={{
           background: 'var(--modal-bg)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
           border: '1px solid var(--modal-border)',
-          borderBottom: 'none',
           boxShadow: '0 -8px 40px rgba(0,0,0,0.5)',
         }}
       >
